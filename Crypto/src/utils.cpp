@@ -8,6 +8,19 @@
 namespace Crypto {
 namespace Utils {
 
+Bytes XORBytes(const Bytes &bytes1, const Bytes &bytes2)
+{
+    if (UNLIKELY(bytes1.size() != bytes2.size())) {
+        ERROR_LOG("Cannot compute XOR of bytes with different sizes.");
+        return {};
+    }
+    Bytes output(bytes1.size());
+    for (size_t i{ 0 }; i < bytes1.size(); i++) {
+        output[i] = bytes1[i] ^ bytes2[i];
+    }
+    return output;
+}
+
 //--------------------------------------------------
 // true: strings match
 // false: strings do not match

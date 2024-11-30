@@ -7,6 +7,8 @@
 #ifndef CRYPTO_DEFS_H
 #define CRYPTO_DEFS_H
 
+#include <string>
+#include <vector>
 #include <cstdint>
 #include <iostream>
 #include <unordered_map>
@@ -66,6 +68,12 @@ constexpr uint8_t MAX_BASE64_DIGIT = 0b111111;
 constexpr uint8_t INVALID_HEX_DIGIT = UINT8_MAX;
 constexpr uint8_t INVALID_BASE64_DIGIT = UINT8_MAX;
 constexpr uint8_t INVALID_DECIMAL_DIGIT = UINT8_MAX;
+
+
+//--------------------------------------------------
+// Type aliases
+//--------------------------------------------------
+using Bytes = std::vector<uint8_t>;
 
 
 //--------------------------------------------------

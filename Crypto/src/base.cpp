@@ -32,7 +32,7 @@ char DecimalToHex(const uint8_t &d)
     return _map.find(d)->second;
 }
 
-std::vector<uint8_t> HexStrToBytes(const std::string &str)
+Bytes HexStrToBytes(const std::string &str)
 {
     // Str size must be a multiple of 2
     if (UNLIKELY(str.size() % 2 != 0)) {
@@ -40,7 +40,7 @@ std::vector<uint8_t> HexStrToBytes(const std::string &str)
         return {};
     }
     // Output
-    std::vector<uint8_t> bytes(str.size()/2);
+    Bytes bytes(str.size()/2);
     // Hex to Decimal mapping
     for (size_t i{ 0 }; i < bytes.size(); i++) {
         const char &c1 = std::tolower(str[2*i]);
@@ -57,7 +57,7 @@ std::vector<uint8_t> HexStrToBytes(const std::string &str)
     return bytes;
 }
 
-std::string BytesToHexStr(const std::vector<uint8_t> &bytes)
+std::string BytesToHexStr(const Bytes &bytes)
 {
     std::stringstream ss;
     for (const auto &byte : bytes) {
@@ -91,11 +91,11 @@ char DecimalToBase64(const uint8_t &d)
     return _map.find(d)->second;
 }
 
-std::vector<uint8_t> Base64StrToBytes(const std::string &str)
+Bytes Base64StrToBytes(const std::string &str)
 {
     // Output
     size_t str_size = str.size();
-    std::vector<uint8_t> bytes(str_size/4 * 3);
+    Bytes bytes(str_size/4 * 3);
     // Parse base64 digits in chunks of 4
     for (size_t i{ 0 }; i < str_size/4; i++) {
         uint8_t d1 = Base64ToDecimal(str[4*i]);
@@ -131,7 +131,7 @@ std::vector<uint8_t> Base64StrToBytes(const std::string &str)
     return bytes;
 }
 
-std::string BytesToBase64Str(const std::vector<uint8_t> &bytes)
+std::string BytesToBase64Str(const Bytes &bytes)
 {
     std::stringstream ss;
     size_t bytes_size = bytes.size();
