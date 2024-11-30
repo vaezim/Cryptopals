@@ -23,6 +23,11 @@ foreach(SET_DIR ${SET_DIRS})
         set_target_properties(${CHALLENGE} PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CURRENT_SET}
         )
+        # Link each challenge executable with Crypto lib
+        target_link_libraries(
+            ${CHALLENGE}
+            ${CRYPTO_LIB}
+        )
     endforeach()
 
 endforeach()

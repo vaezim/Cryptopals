@@ -5,6 +5,7 @@ project(cryptopals)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output/exe)
 
 # Libraries at ./output/lib
+set(CRYPTO_LIB crypto)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output/lib)
 
 # GCC flags
