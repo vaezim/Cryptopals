@@ -11,11 +11,7 @@ namespace Utils {
 
 std::string BytesToStr(const Bytes &bytes)
 {
-    std::stringstream ss;
-    for (const auto &byte : bytes) {
-        ss << byte;
-    }
-    return ss.str();
+    return std::string(bytes.begin(), bytes.end());
 }
 
 Bytes StrToBytes(const std::string &str)
@@ -39,17 +35,18 @@ double GetCharFrqeuencyInStr(const std::string &str, char c)
     return static_cast<double>(count) / static_cast<double>(str.size());
 }
 
-double GetAlNumPercentageInStr(const std::string &str)
+double GetTextScore(const std::string &str)
 {
-    size_t count{ 0 };
+    double count{ 0 };
     for (const auto &c : str) {
+        if (!std::isprint(c) && c != '\n') {
+            return 0.0;
+        }
         if (std::isalnum(c)) {
-            count++;
-        } else if (count > 0) {
-            count--;
+            count += 1.0;
         }
     }
-    return static_cast<double>(count) / static_cast<double>(str.size());
+    return count / static_cast<double>(str.size());
 }
 
 //--------------------------------------------------

@@ -33,7 +33,7 @@ void XORDecryptor::BruteForce()
         TextScore_t textFreq;
         textFreq.message = Utils::BytesToStr(msgBytes);
         textFreq.key = Utils::BytesToStr(key);
-        textFreq.score = Utils::GetAlNumPercentageInStr(textFreq.message);
+        textFreq.score = Utils::GetTextScore(textFreq.message);
         m_msgPQ.emplace(textFreq);
     }
 }
@@ -43,7 +43,7 @@ TextScore_t XORDecryptor::Top()
     if (UNLIKELY(m_msgPQ.empty())) {
         return {};
     }
-    auto &topMsg = m_msgPQ.top();
+    auto topMsg = m_msgPQ.top();
     m_msgPQ.pop();
     return topMsg;
 }

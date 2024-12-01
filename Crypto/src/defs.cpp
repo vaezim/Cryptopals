@@ -81,4 +81,14 @@ const std::unordered_map<uint8_t, char> &GetDecimalToBase64Map()
     return _map;
 }
 
+const std::unordered_map<char, double> &GetCommonAlphabetsScoreMap()
+{
+    static const std::unordered_map<char, double> _map {
+        { ' ', 18.0 }, { 'e', 12.7 }, { 't', 9.06 }, { 'a', 8.17 },
+        { 'o', 7.51 }, { 'i', 6.97 }, { 'n', 6.75 }, { 's', 6.33 },
+        { 'h', 6.09 }, { 'r', 5.99 }, { 'd', 4.25 }, { 'l', 4.03 }, { 'u', 2.76 }
+    };
+    return _map;
+}
+
 } // namespace Crypto

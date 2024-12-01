@@ -18,11 +18,11 @@ std::string BytesToStr(const Bytes &bytes);
 // String to bytes
 Bytes StrToBytes(const std::string &string);
 
+// Get percentage of alpha-numeric characters
+double GetTextScore(const std::string &str);
+
 // Get character usage% in a string
 double GetCharFrqeuencyInStr(const std::string &str, char c);
-
-// Get percentage of alpha-numeric characters
-double GetAlNumPercentageInStr(const std::string &str);
 
 // Strings
 bool CompareString(const std::string &s1, const std::string &s2);

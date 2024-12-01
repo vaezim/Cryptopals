@@ -108,6 +108,7 @@ const std::unordered_map<char, uint8_t> &GetHexToDecimalMap();
 const std::unordered_map<uint8_t, char> &GetDecimalToHexMap();
 const std::unordered_map<char, uint8_t> &GetBase64ToDecimalMap();
 const std::unordered_map<uint8_t, char> &GetDecimalToBase64Map();
+const std::unordered_map<char, double> &GetCommonAlphabetsScoreMap();
 
 } // namespace Crypto
 

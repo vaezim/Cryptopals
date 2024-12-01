@@ -30,4 +30,9 @@ foreach(SET_DIR ${SET_DIRS})
         )
     endforeach()
 
+    # Copy text/ directory to executables path
+    if(EXISTS "${SET_DIR}/text/")
+        file(COPY "${SET_DIR}/text/" DESTINATION "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CURRENT_SET}/text")
+    endif()
+
 endforeach()

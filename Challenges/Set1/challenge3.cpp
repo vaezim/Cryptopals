@@ -1,5 +1,6 @@
 #include "crypto.h"
 
+
 int main()
 {
     // Cipher Text
@@ -11,10 +12,12 @@ int main()
     // XOR decryptor
     Crypto::Xor::XORDecryptor decryptor(cipherBytes);
 
-    // Possible keys: [0, UINT8_MAX]
-    std::vector<Crypto::Bytes> keys(UINT8_MAX+1);
-    for (int key{ 0 }; key <= UINT8_MAX; key++) {
-        keys[key] = { static_cast<uint8_t>(key) };
+    // Possible keys: lower/upper case alphabets
+    std::vector<Crypto::Bytes> keys;
+    for (uint8_t key{ 0 }; key < UINT8_MAX; key++) {
+        if (std::isalpha(key)) {
+            keys.push_back({ key });
+        }
     }
     decryptor.AddKeys(std::move(keys));
 
