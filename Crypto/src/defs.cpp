@@ -7,6 +7,11 @@
 
 namespace Crypto {
 
+bool TextFreqComparator::operator() (const TextScore_t &t1, const TextScore_t &t2)
+{
+    return t1.score < t2.score;
+}
+
 const std::unordered_map<char, uint8_t> &GetHexToDecimalMap()
 {
     static const std::unordered_map<char, uint8_t> _map {

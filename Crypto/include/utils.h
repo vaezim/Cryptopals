@@ -12,8 +12,17 @@
 namespace Crypto {
 namespace Utils {
 
-// XOR Bytes
-Bytes XORBytes(const Bytes &bytes1, const Bytes &bytes2); 
+// Bytes to string
+std::string BytesToStr(const Bytes &bytes);
+
+// String to bytes
+Bytes StrToBytes(const std::string &string);
+
+// Get character usage% in a string
+double GetCharFrqeuencyInStr(const std::string &str, char c);
+
+// Get percentage of alpha-numeric characters
+double GetAlNumPercentageInStr(const std::string &str);
 
 // Strings
 bool CompareString(const std::string &s1, const std::string &s2);

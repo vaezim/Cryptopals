@@ -18,7 +18,7 @@ int main()
     const auto &bytes2 = Crypto::Base::HexStrToBytes(hexStr2);
 
     // XOR bytes
-    const auto &xorBytes = Crypto::Utils::XORBytes(bytes1, bytes2);
+    const auto &xorBytes = Crypto::Xor::XORBytesWithBytes(bytes1, bytes2);
 
     // Hex encode
     const std::string &xorHexStr = Crypto::Base::BytesToHexStr(xorBytes);

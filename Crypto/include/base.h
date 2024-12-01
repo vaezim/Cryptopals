@@ -12,7 +12,7 @@
 namespace Crypto {
 namespace Base {
 
-// Base 16
+// Base 16 (Hex)
 uint8_t HexToDecimal(const char &c);
 char DecimalToHex(const uint8_t &d);
 Bytes HexStrToBytes(const std::string &str);

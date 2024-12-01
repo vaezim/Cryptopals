@@ -58,6 +58,23 @@ namespace Crypto {
 
 
 //--------------------------------------------------
+// Structs
+//--------------------------------------------------
+// Struct for holding a plain-text message
+// and the score of it according to some scoring
+// metric (e.g. count of letters "aeiou")
+struct TextScore_t {
+    double score;           // Score of this text
+    std::string key;        // Key used for decrypting
+    std::string message;    // Plain text message
+};
+// Comparator for TextScore_t
+struct TextFreqComparator {
+    bool operator() (const TextScore_t &t1, const TextScore_t &t2);
+};
+
+
+//--------------------------------------------------
 // constexpr & static consts
 //--------------------------------------------------
 // Base maximums

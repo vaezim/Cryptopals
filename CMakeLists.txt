@@ -10,7 +10,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output/lib)
 
 # GCC flags
 set(CMAKE_CXX_FLAGS 
-    "-Wall -Werror -Wextra -Wshadow -Wnon-virtual-dtor -Wunused -pedantic"
+    "-std=c++17 -Wall -Werror -Wextra -Wshadow -Wnon-virtual-dtor -Wunused -pedantic"
 )
 
 # Include directories

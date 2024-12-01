@@ -7,6 +7,7 @@
 #ifndef CRYPTO_H
 #define CRYPTO_H
 
+#include "xor.h"
 #include "defs.h"
 #include "base.h"
 #include "utils.h"
