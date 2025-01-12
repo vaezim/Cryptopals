@@ -1,5 +1,9 @@
 #include "crypto.h"
 
+/**************************************************
+ * Challenge 5
+ * https://cryptopals.com/sets/1/challenges/5
+ **************************************************/
 
 int main()
 {
@@ -19,8 +23,8 @@ int main()
     // XOR encryption
     const Crypto::Bytes &cipherBytes =
         Crypto::Xor::XORBytesWithBytes(
-            Crypto::Utils::StrToBytes(plainTextMessage),
-            Crypto::Utils::StrToBytes(key));
+            Crypto::Str::StrToBytes(plainTextMessage),
+            Crypto::Str::StrToBytes(key));
 
     // Cipher text in hex
     const std::string &cipherHexStr = Crypto::Base::BytesToHexStr(cipherBytes);
@@ -28,7 +32,7 @@ int main()
     // Validate answer
     std::cout << "Plain text:\n\t" << plainTextMessage << std::endl;
     std::cout << "Cipher text (hex):\n\t" << cipherHexStr << std::endl;
-    if (Crypto::Utils::CompareString(expectedCipherHexStr, cipherHexStr)) {
+    if (Crypto::Str::CompareString(expectedCipherHexStr, cipherHexStr)) {
         INFO_LOG("Answer is correct.");
     } else {
         RED_INFO_LOG("Answer is incorrect!");

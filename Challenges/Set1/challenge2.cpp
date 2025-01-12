@@ -1,5 +1,9 @@
 #include "crypto.h"
 
+/**************************************************
+ * Challenge 2
+ * https://cryptopals.com/sets/1/challenges/2
+ **************************************************/
 
 int main()
 {
@@ -27,7 +31,7 @@ int main()
     // Validate answer
     std::cout << "XOR hex string by Crypto lib:\n\t" << xorHexStr << std::endl;
     std::cout << "Expected XOR hex string:\n\t" << expectedHexStr << std::endl;
-    if (Crypto::Utils::CompareString(expectedHexStr, xorHexStr)) {
+    if (Crypto::Str::CompareString(expectedHexStr, xorHexStr)) {
         INFO_LOG("Answer is correct.");
     } else {
         RED_INFO_LOG("Answer is incorrect!");

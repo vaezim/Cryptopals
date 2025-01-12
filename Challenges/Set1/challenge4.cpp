@@ -1,6 +1,10 @@
 #include <fstream>
 #include "crypto.h"
 
+/**************************************************
+ * Challenge 4
+ * https://cryptopals.com/sets/1/challenges/4
+ **************************************************/
 
 int main()
 {
@@ -28,21 +32,22 @@ int main()
     while (std::getline(ifs, cipherHex)) {
         const auto &cipherBytes = Crypto::Base::HexStrToBytes(cipherHex);
 
-        // XOR decryptor
-        Crypto::Xor::XORDecryptor decryptor(cipherBytes);
-        decryptor.AddKeys(std::move(keys));
+        // XOR bruteForce
+        Crypto::Xor::XORBruteForce bruteForce(cipherBytes);
+        bruteForce.AddKeys(keys);
 
         // Generate all possible plain-text messages with brute force
-        decryptor.BruteForce();
+        bruteForce.BruteForce();
 
         // Add plain-text messages to priority_queue
-        while (!decryptor.Empty()) {
-            msgPQ.emplace(decryptor.Top());
+        while (!bruteForce.Empty()) {
+            msgPQ.emplace(bruteForce.Top());
         }
     }
 
     // Output file
-    std::ofstream ofs("text/4.out");
+    const std::string outputFile{ "./text/4.out" };
+    std::ofstream ofs(outputFile);
 
     // Get top score plain-text messages
     while (!msgPQ.empty()) {
@@ -52,6 +57,8 @@ int main()
         }
         msgPQ.pop();
     }
+    ofs.close();
+    INFO_LOG("Possible plain-text messages dumped to " << outputFile);
 
     return 0;
 }

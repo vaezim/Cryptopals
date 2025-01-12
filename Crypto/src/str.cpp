@@ -1,13 +1,14 @@
 /**************************************************
  * @date    2024-11-29
- * @brief   Crypto utility functions
+ * @brief   String utilities
  **************************************************/
 
 #include <sstream>
-#include "utils.h"
+#include "str.h"
+#include "bit.h"
 
 namespace Crypto {
-namespace Utils {
+namespace Str {
 
 std::string BytesToStr(const Bytes &bytes)
 {
@@ -66,5 +67,5 @@ bool CompareString(const std::string &s1, const std::string &s2)
     return true;
 }
 
-} // namespace Utils
+} // namespace Str
 } // namespace Crypto

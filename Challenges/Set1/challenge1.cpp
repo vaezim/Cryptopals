@@ -1,5 +1,9 @@
 #include "crypto.h"
 
+/**************************************************
+ * Challenge 1
+ * https://cryptopals.com/sets/1/challenges/1
+ **************************************************/
 
 int main()
 {
@@ -22,7 +26,7 @@ int main()
     // Validate answer
     std::cout << "Base64 string by Crypto lib:\n\t" << base64Str << std::endl;
     std::cout << "Expected Base64 string:\n\t" << expectedBase64Str << std::endl;
-    if (Crypto::Utils::CompareString(expectedBase64Str, base64Str)) {
+    if (Crypto::Str::CompareString(expectedBase64Str, base64Str)) {
         INFO_LOG("Answer is correct.");
     } else {
         RED_INFO_LOG("Answer is incorrect!");

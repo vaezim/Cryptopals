@@ -1,5 +1,9 @@
 #include "crypto.h"
 
+/**************************************************
+ * Challenge 3
+ * https://cryptopals.com/sets/1/challenges/3
+ **************************************************/
 
 int main()
 {
@@ -9,8 +13,8 @@ int main()
     };
     const auto &cipherBytes = Crypto::Base::HexStrToBytes(cipherHex);
 
-    // XOR decryptor
-    Crypto::Xor::XORDecryptor decryptor(cipherBytes);
+    // XOR bruteForce
+    Crypto::Xor::XORBruteForce bruteForce(cipherBytes);
 
     // Possible keys: lower/upper case alphabets
     std::vector<Crypto::Bytes> keys;
@@ -19,15 +23,15 @@ int main()
             keys.push_back({ key });
         }
     }
-    decryptor.AddKeys(std::move(keys));
+    bruteForce.AddKeys(keys);
 
     // Generate all possible plain-text messages with brute force
-    decryptor.BruteForce();
+    bruteForce.BruteForce();
 
     // Print messages until queue is empty
     // Correct Answer: Cooking MC's like a pound of bacon (Key = 'X')
-    while (!decryptor.Empty()) {
-        const auto &plainTextMessage = decryptor.Top();
+    while (!bruteForce.Empty()) {
+        const auto &plainTextMessage = bruteForce.Top();
         std::cout << "Possible plain-text message:\n"
             << "\tKey: " << plainTextMessage.key << "\n"
             << "\tMessage: " << plainTextMessage.message << std::endl;
